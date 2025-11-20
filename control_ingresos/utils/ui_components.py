@@ -71,7 +71,7 @@ def info_cards() -> rx.Component:
 def new_entry_sheet() -> rx.Component:
     """Crea un sheet modal para agregar nuevos ingresos, gastos o ahorros."""
     return rx.box(
-        rx.heading("Nueva entrada", size="3", margin="1.5em 0 2em 0", align="center"),
+        rx.heading("Nueva entrada", size="4", margin="1.5em 0 2em 0", align="center"),
 
         # Control de segmento para seleccionar tipo de operación
         rx.segmented_control.root(
@@ -79,13 +79,19 @@ def new_entry_sheet() -> rx.Component:
             rx.segmented_control.item("Gasto", value="gasto"),
             rx.segmented_control.item("Ahorro", value="ahorro"),
             default_value="gasto",
-            justify="center",
-            margin_x="20%",
-            margin_bottom="2em",
+            margin="1em 15vw 2em",
             on_change=FormsState.set_operation_type,
             value=FormsState.operation_type,
             radius="full",
-            size="2",
+            size="3",
+            bg=rx.color_mode_cond(
+                light=Custom_theme().light_colors()["background"],
+                dark=Custom_theme().dark_colors()["background"],
+            ),
+            box_shadow=rx.color_mode_cond(
+                light=Custom_theme().light_colors()["box_shadow"],
+                dark=Custom_theme().dark_colors()["box_shadow"],
+            ),
             width="60%",
         ),
 

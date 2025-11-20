@@ -12,7 +12,7 @@ class Custom_theme():
             "menu-background": "linear-gradient(180deg, rgba(0, 0, 0, 0.05) 10%, rgba(0, 0, 0, 0) 100%)",
             "text": "#000000",
             "border": "#0039F2",
-            "box_shadow": "0px 0px 16px 3px #5E79FF10",
+            "box_shadow": "0px 2px 16px 4px #80808020",
             "success": "#10B981",
             "success_light": "#D1FAE5",
             "warning": "#F59E0B",
