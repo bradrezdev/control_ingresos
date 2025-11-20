@@ -71,7 +71,7 @@ def info_cards() -> rx.Component:
 def new_entry_sheet() -> rx.Component:
     """Crea un sheet modal para agregar nuevos ingresos, gastos o ahorros."""
     return rx.box(
-        rx.heading("Nueva entrada", size="4", margin="1.5em 0 2em 0", align="center"),
+        rx.heading("Nueva entrada", size="4", margin="1.5em 0 1.5em 0", align="center"),
 
         # Control de segmento para seleccionar tipo de operación
         rx.segmented_control.root(
@@ -79,7 +79,7 @@ def new_entry_sheet() -> rx.Component:
             rx.segmented_control.item("Gasto", value="gasto"),
             rx.segmented_control.item("Ahorro", value="ahorro"),
             default_value="gasto",
-            margin="1em 15vw 2em",
+            margin="0 14vw 2em",
             on_change=FormsState.set_operation_type,
             value=FormsState.operation_type,
             radius="full",
@@ -301,13 +301,13 @@ class Forms:
             ),
             rx.button(
                 "Confirmar operación",
-                size="3",
-                width="90%",
+                size="4",
+                width="92%",
+                position="absolute",
+                bottom="1em",
                 radius="full",
-                margin="8em 5% 1em 5%",
                 bg="#0039F2",
                 color="white",
-                justify="center",
             ),
         )
 
@@ -320,6 +320,7 @@ class Forms:
                 rx.hstack(
                     rx.text("Monto:"),
                     rx.input(
+                        font_size="1em",
                         placeholder="Obligatorio",
                         border_radius="38px",
                         variant="soft",
@@ -334,27 +335,27 @@ class Forms:
                 ),
                 rx.hstack(
                     rx.text("Descripción:"),
-                    rx.input(
-                        placeholder="Obligatorio",
-                        border_radius="38px",
-                        variant="soft",
-                        bg=rx.color_mode_cond(
-                            light=Custom_theme().light_colors()["tertiary"],
-                            dark=Custom_theme().dark_colors()["tertiary"],
+                        rx.input(
+                            font_size="1em",
+                            placeholder="Obligatorio",
+                            border_radius="38px",
+                            variant="soft",
+                            bg=rx.color_mode_cond(
+                                light=Custom_theme().light_colors()["tertiary"],
+                                dark=Custom_theme().dark_colors()["tertiary"],
+                            ),
+                            width="100%",
                         ),
-                        width="100%",
-                    ),
                     align="center",
                     width="100%",
                 ),
                 rx.hstack(
                     rx.text("Categoría:", margin_right="0.5em"),
                     rx.select(
-                        ["Salario",
-                         "Freelance",
-                         "Negocio propio",
+                        ["Negocio propio",
                          "Inversiones",
                          "Venta de productos",
+                         "Regalos",
                          "Otros"],
                         placeholder="Selecciona una categoría",
                         radius="full",
@@ -365,6 +366,22 @@ class Forms:
                         ),
                         size="3",
                     ),
+                    align="center",
+                    width="100%",
+                ),
+                rx.hstack(
+                    rx.text("Subcategoría:"),
+                        rx.input(
+                            font_size="1em",
+                            placeholder="Obligatorio",
+                            border_radius="38px",
+                            variant="soft",
+                            bg=rx.color_mode_cond(
+                                light=Custom_theme().light_colors()["tertiary"],
+                                dark=Custom_theme().dark_colors()["tertiary"],
+                            ),
+                            width="100%",
+                        ),
                     align="center",
                     width="100%",
                 ),
@@ -398,10 +415,11 @@ class Forms:
             ),
             rx.button(
                 "Confirmar operación",
-                size="3",
-                width="90%",
+                size="4",
+                width="92%",
+                position="absolute",
+                bottom="1em",
                 radius="full",
-                margin="8em 5% 1em 5%",
                 bg="#0039F2",
                 color="white",
             ),
@@ -475,10 +493,11 @@ class Forms:
             ),
             rx.button(
                 "Confirmar operación",
-                size="3",
-                width="90%",
+                size="4",
+                width="92%",
+                position="absolute",
+                bottom="1em",
                 radius="full",
-                margin="8em 5% 1em 5%",
                 bg="#0039F2",
                 color="white",
             ),
